@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemEra 2026 | Chemical Sciences Symposium</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Segoe UI', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#151e2e',
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Animations & Utilities */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(6deg); }
+            50% { transform: translateY(-15px) rotate(9deg); }
+            100% { transform: translateY(0px) rotate(6deg); }
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .glass-nav {
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .glass-card {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Scientific Grid Background */
+        .bg-grid {
+            background-image: linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-900 text-slate-50 selection:bg-sky-500/30 overflow-x-hidden antialiased">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6 bg-transparent">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group z-50">
+                <i data-lucide="flask-conical" class="text-sky-400 group-hover:rotate-12 transition-transform"></i>
+                <h1 class="text-2xl font-bold tracking-tight text-white">
+                    Chem<span class="text-sky-400">Era</span> <span class="text-slate-400 font-light">2026</span>
+                </h1>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#about" class="text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">About</a>
+                <a href="#events" class="text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">Events</a>
+                <a href="#contact" class="text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">Contact</a>
+                <a href="#register" class="px-5 py-2.5 bg-sky-500 hover:bg-sky-400 text-white rounded-full text-sm font-semibold transition-all shadow-[0_0_15px_rgba(56,189,248,0.3)] hover:shadow-[0_0_25px_rgba(56,189,248,0.5)] transform hover:-translate-y-0.5">
+                    Register Now
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white z-50">
+                <i data-lucide="menu" id="icon-menu"></i>
+                <i data-lucide="x" id="icon-x" class="hidden"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-lg flex-col items-center justify-center gap-8 hidden h-screen w-full transition-opacity duration-300 z-40">
+            <a href="#about" class="mobile-link text-2xl font-medium text-slate-300 hover:text-sky-400 transition-colors">About</a>
+            <a href="#events" class="mobile-link text-2xl font-medium text-slate-300 hover:text-sky-400 transition-colors">Events</a>
+            <a href="#contact" class="mobile-link text-2xl font-medium text-slate-300 hover:text-sky-400 transition-colors">Contact</a>
+            <a href="#register" class="mobile-link mt-4 px-8 py-4 bg-sky-500 text-white rounded-full text-xl font-semibold">
+                Register Now
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 flex flex-col justify-center items-center text-center min-h-screen bg-grid">
+        
+        <!-- Glowing Background Orbs -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sky-600/20 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+        <div class="absolute top-0 right-10 w-96 h-96 bg-indigo-600/20 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 border border-slate-700 text-sky-400 text-sm font-medium mb-8 backdrop-blur-sm shadow-lg">
+            <span class="relative flex h-2.5 w-2.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-sky-500"></span>
+            </span>
+            Registrations Open for 2026
+        </div>
+
+        <!-- Main Heading -->
+        <h2 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 max-w-4xl leading-tight">
+            Welcome to the Future of <br class="hidden md:block" />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-400 to-indigo-400">
+                Chemical Sciences
+            </span>
+        </h2>
+        
+        <p class="text-lg md:text-xl text-slate-400 max-w-2xl mb-10 leading-relaxed">
+            Innovate. Research. Present. Join the premier platform for students to showcase groundbreaking research and scientific thinking.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+            <a href="#register" class="px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white rounded-lg font-semibold transition-all flex items-center justify-center gap-2 group shadow-lg shadow-sky-500/25 hover:shadow-sky-500/40">
+                Register Now
+                <i data-lucide="chevron-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+            <a href="#events" class="px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white rounded-lg font-semibold border border-slate-700 transition-all flex items-center justify-center">
+                Explore Events
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 bg-slate-950/80 relative">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16 relative z-10">
+            
+            <!-- Graphic -->
+            <div class="w-full md:w-1/2 flex justify-center">
+                <div class="relative w-72 h-72 md:w-96 md:h-96">
+                    <!-- Decor background -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-sky-500/30 to-indigo-500/30 rounded-3xl transform rotate-6 animate-float"></div>
+                    <!-- Main glass box -->
+                    <div class="absolute inset-0 glass-card rounded-3xl flex items-center justify-center shadow-2xl animate-float" style="animation-delay: -3s;">
+                        <i data-lucide="flask-round" class="w-32 h-32 text-sky-400 drop-shadow-[0_0_15px_rgba(56,189,248,0.5)]"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text Content -->
+            <div class="w-full md:w-1/2">
+                <div class="inline-flex items-center gap-2 text-sky-400 font-semibold tracking-wider uppercase text-sm mb-4">
+                    <i data-lucide="info" class="w-4 h-4"></i> About The Event
+                </div>
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">
+                    Discover <span class="text-sky-400">ChemEra</span>
+                </h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-sky-500 to-transparent rounded-full mb-8"></div>
+                
+                <p class="text-slate-300 text-lg leading-relaxed mb-6">
+                    ChemEra is an elite symposium designed for aspiring chemists, researchers, and innovators. We provide a collaborative environment to push the boundaries of modern chemistry.
+                </p>
+                <p class="text-slate-400 leading-relaxed mb-8">
+                    Whether you are developing sustainable materials, exploring computational chemistry, or presenting novel synthesis methods, ChemEra 2026 is your stage to shine and connect with industry leaders.
+                </p>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="border-l-2 border-sky-500 pl-4">
+                        <h4 class="text-2xl font-bold text-white">500+</h4>
+                        <p class="text-sm text-slate-400">Participants Expected</p>
+                    </div>
+                    <div class="border-l-2 border-indigo-500 pl-4">
+                        <h4 class="text-2xl font-bold text-white">15+</h4>
+                        <p class="text-sm text-slate-400">Guest Speakers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="py-24 px-6 bg-slate-900 relative">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 text-white">Featured Events</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-sky-500 to-transparent rounded-full mx-auto mb-6"></div>
+                <p class="text-slate-400 max-w-2xl mx-auto text-lg">
+                    Participate in a variety of challenging and educational events designed to test your knowledge and presentation skills.
+                </p>
+            </div>
+
+            <!-- Event Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Event Card 1 -->
+                <div class="glass-card p-8 rounded-2xl hover:border-sky-500/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-sky-900/20 group">
+                    <div class="w-16 h-16 bg-sky-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-sky-500/20 transition-colors group-hover:scale-110 duration-300">
+                        <i data-lucide="presentation" class="w-8 h-8 text-sky-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Poster Presentation</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Present your research ideas visually. Showcase your methodology, findings, and conclusion to our panel of esteemed judges and peers.
+                    </p>
+                </div>
+
+                <!-- Event Card 2 -->
+                <div class="glass-card p-8 rounded-2xl hover:border-indigo-500/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-900/20 group">
+                    <div class="w-16 h-16 bg-indigo-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-indigo-500/20 transition-colors group-hover:scale-110 duration-300">
+                        <i data-lucide="mic-2" class="w-8 h-8 text-indigo-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Technical Talks</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Learn from experts and innovators. Attend keynote sessions and guest lectures focusing on the latest advancements in chemical sciences.
+                    </p>
+                </div>
+
+                <!-- Event Card 3 -->
+                <div class="glass-card p-8 rounded-2xl hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-emerald-900/20 group">
+                    <div class="w-16 h-16 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 transition-colors group-hover:scale-110 duration-300">
+                        <i data-lucide="trophy" class="w-8 h-8 text-emerald-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Competitions</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Compete and prove your knowledge in fast-paced quizzes, problem-solving marathons, and practical laboratory challenges.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="register" class="py-24 px-6 bg-slate-950/50 border-t border-slate-800 relative overflow-hidden">
+        <!-- Background Glow -->
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-sky-900/10 blur-[100px] -z-10 pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">Ready to secure your spot?</h2>
+            <p class="text-lg text-slate-300 mb-10 max-w-2xl mx-auto">
+                Early bird registrations are now open. Don't miss the chance to be part of the biggest chemistry symposium of the year.
+            </p>
+            
+            <!-- Registration Form Card -->
+            <div class="glass-card p-8 md:p-10 rounded-3xl text-left max-w-md mx-auto relative z-10">
+                <form onsubmit="event.preventDefault(); alert('Registration submitted successfully! We will contact you shortly.');" class="flex flex-col gap-5">
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-slate-400 mb-2">Full Name</label>
+                        <div class="relative">
+                            <i data-lucide="user" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500"></i>
+                            <input type="text" required placeholder="Dr. Marie Curie" class="w-full bg-slate-900/50 border border-slate-700 rounded-xl pl-12 pr-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all" />
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-slate-400 mb-2">University / Institution Email</label>
+                        <div class="relative">
+                            <i data-lucide="mail" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500"></i>
+                            <input type="email" required placeholder="researcher@university.edu" class="w-full bg-slate-900/50 border border-slate-700 rounded-xl pl-12 pr-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all" />
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-semibold py-4 rounded-xl mt-4 transition-all shadow-lg shadow-sky-500/25 flex justify-center items-center gap-2 group">
+                        Proceed to Register
+                        <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Contact -->
+    <footer id="contact" class="bg-slate-950 pt-20 pb-10 px-6 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+            
+            <!-- Brand Column -->
+            <div class="md:col-span-5">
+                <a href="#" class="flex items-center gap-2 mb-6">
+                    <i data-lucide="flask-conical" class="text-sky-400 w-8 h-8"></i>
+                    <h2 class="text-2xl font-bold text-white">ChemEra 2026</h2>
+                </a>
+                <p class="text-slate-400 max-w-sm mb-6 leading-relaxed">
+                    Empowering the next generation of chemical scientists through collaboration, presentation, and innovation.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-sky-400 hover:border-sky-500/50 transition-all">
+                        <i data-lucide="twitter" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-sky-400 hover:border-sky-500/50 transition-all">
+                        <i data-lucide="linkedin" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links Column -->
+            <div class="md:col-span-3">
+                <h3 class="text-lg font-semibold mb-6 text-white">Quick Links</h3>
+                <ul class="flex flex-col gap-3">
+                    <li><a href="#about" class="text-slate-400 hover:text-sky-400 transition-colors">About Symposium</a></li>
+                    <li><a href="#events" class="text-slate-400 hover:text-sky-400 transition-colors">Event Schedule</a></li>
+                    <li><a href="#register" class="text-slate-400 hover:text-sky-400 transition-colors">Registration Info</a></li>
+                    <li><a href="#" class="text-slate-400 hover:text-sky-400 transition-colors">Code of Conduct</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Column -->
+            <div class="md:col-span-4">
+                <h3 class="text-lg font-semibold mb-6 text-white">Contact Coordinator</h3>
+                <div class="flex flex-col gap-5">
+                    
+                    <div class="flex items-center gap-4 text-slate-300 bg-slate-900/50 p-3 rounded-xl border border-slate-800">
+                        <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center border border-slate-700">
+                            <i data-lucide="user-check" class="w-6 h-6 text-sky-400"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium text-white text-lg">Utkarsh</p>
+                            <p class="text-sm text-slate-400">Lead Event Coordinator</p>
+                        </div>
+                    </div>
+
+                    <a href="mailto:contact@chemera.com" class="flex items-center gap-4 text-slate-300 group">
+                        <div class="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center border border-slate-800 group-hover:border-sky-500/50 transition-colors">
+                            <i data-lucide="mail" c
